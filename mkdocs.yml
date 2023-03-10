@@ -42,3 +42,4 @@ nav:
   - HEDM Workflow:
     - hedm/indexing.md
     - hedm/fit_grains.md
+  - contributing.md
