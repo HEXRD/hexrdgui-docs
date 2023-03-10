@@ -19,7 +19,7 @@ HEXRDGUI. Once installed, visit the pages on:
  * [Instrument Configuration](configuration/instrument.md)
  * [Materials](configuration/materials.md)
  * [Image Loading](configuration/images.md)
- * [View Modes](view_modes.md)
+ * [View Modes](views.md)
 
 ## About
 
