@@ -265,3 +265,8 @@ subpanel will be treated as a separate detector.
 In the near future, we plan to allow for additional constraints to be placed
 between subpanels when performing instrument calibration, so that the relative
 translations/tilts between subpanels may be fixed.
+
+FIXME: add content
+*Cylindrical Detectors*
+
+The ray cylinder intersection is solved efficiently using vectorial equations
