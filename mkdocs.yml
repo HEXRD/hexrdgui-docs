@@ -33,6 +33,7 @@ nav:
     - configuration/instrument.md
     - configuration/materials.md
     - configuration/images.md
+    - configuration/state.md
   - views.md
   - Calibration:
     - calibration/fast_powder.md
