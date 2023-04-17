@@ -31,8 +31,9 @@ nav:
   - installing.md
   - Configuration:
     - configuration/instrument.md
-    - configuration/materials.md
     - configuration/images.md
+    - configuration/materials.md
+    - configuration/overlays.md
     - configuration/state.md
   - views.md
   - Calibration:
