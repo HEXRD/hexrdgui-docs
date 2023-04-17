@@ -73,7 +73,10 @@ calibration.
 In the form view, if the "Select Energy from X-Ray Table" button is clicked, the
 above dialog should appear.
 
-This table provides absorption edges and emission lines for a variety of elements.
+If the x-ray was produced by burning a metal foil, the x-ray energy may be selected
+through this dialog.
+
+The displayed table provides absorption edges and emission lines for a variety of elements.
 A single row can be selected to use the energy of that entry, or multiple rows can
 be selected, in which case, their energies will be averaged together.
 
