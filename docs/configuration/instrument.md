@@ -57,7 +57,7 @@ For instance, if the x-ray was produced by burning a metal foil, it may be selec
 through the ["Select Energy from X-Ray Table" button](#x-ray-energy-selection).
 The beam vector can be specified by either polar or cartesian
 coordinates. Whether or not there is a finite source distance (used primarily for
-[pinhole distortion methods](overlays.md#pinhole-distortions)) may be specified. A distortion
+[pinhole distortion methods](overlays.md#pinhole-distortion)) may be specified. A distortion
 function may be applied (such as `GE_41RT`). And detectors can be added (with the
 `+` button), removed (with the `-` button), or renamed (using the combo box in the
 "Detector Parameters" section).

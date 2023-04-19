@@ -127,7 +127,7 @@ In the `Distortion` group, a few different distortion types may be selected in o
 take into account distortions to the powder diffraction patterns in the images. The
 simplest one is offset, which is a sample offset, in case the sample is displaced from the
 origin. An offset with all zeros is equivalent to "no distortion". The
-other option is `Pinhole Camera Correction` - see [Pinhole Distortions](#pinhole-distortions)
+other option is `Pinhole Camera Correction` - see [Pinhole Distortion](#pinhole-distortion)
 for more information.
 
 `Clip with panel buffer?` is used to indicate whether the overlays should be clipped so
@@ -138,7 +138,7 @@ The `Refinements` section allows the user to set which material lattice paramete
 refinable during calibration. Note that this is also accessible in the refinements editor
 (see [refinements](../calibration/refinements.md) for more details).
 
-### Pinhole Distortions
+### Pinhole Distortion
 
 Instruments that produce x-rays by burning a metal foil often require a pinhole
 to restrict the x-rays that reach the detectors. The presence of the pinhole
