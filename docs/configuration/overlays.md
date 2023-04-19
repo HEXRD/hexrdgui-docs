@@ -217,7 +217,7 @@ distorting the polar view using the "Ta powder" overlay results in the following
 
 ![Sample Layer Distortion Polar](img/sample_layer_distortion_polar.png)
 
-Note that the Tantalum powder lines are now straight instead of curved.
+Note that the green lines (Tantalum powder) are now straight instead of curved.
 The red lines (`gamma_Fe`) are transformed as well, and are almost straight (but
 not quite).
 
