@@ -72,13 +72,26 @@ The reflections table may be used for a few reasons:
 
 1. To view information about each available reflection
 2. To show/hide the reflection for powder overlays
-3. To select reflections to use in various steps in the [HEDM workflow](../hedm/indexing.md)
+3. To select reflections to use in calibration methods
+4. To select reflections to use in various steps in the [HEDM workflow](../hedm/indexing.md)
+
+Shift-click can be used to select multiple rows simultaneously, and ctrl-click may
+be used to add/remove individual rows. The rows may also be sorted by clicking on the
+various columns at the top.
 
 If a [powder overlay](overlays.md#powder-overlays) is visible for the selected
 material, then only the reflections corresponding to the selected rows will be drawn.
+These HKL selections also determine which HKLs are used for the various calibration
+methods.
 
-Shift-click can be used to select multiple rows simultaneously, and ctrl-click may
-be used to add/remove individual rows.
+In the columns of the table, |F|² is the structure factor, and Iₚ is the powder
+intensity. They are both normalized so that the maximum is 100.
+
+Setting the min d-spacing in the [materials panel](#materials-panel) will affect
+the number of rows in the reflections table. If an HKL falls below the
+`Min d-spacing (computed)`, it will not be displayed in the table at all.
+If an HKL falls below the `Min d-spacing (displayed)`, it will appear in the table,
+but it will be grayed out and not selectable.
 
 ### General Settings
 
