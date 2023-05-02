@@ -7,6 +7,7 @@ The image quick load option is great for rapidly loading images that have alread
 ![Quick Load Open Images](img/open_images.png)
 
 Once you have selected the image(s) you would like to load you will be provided a second dialog where you can:
+
 1. Confirm that correct image has been matched to the correct detector
 2. Apply transforms to an image if needed
 
@@ -14,7 +15,7 @@ Once you have selected the image(s) you would like to load you will be provided 
 
 ### File Pattern Matching
 
-Did you know that you don't *have* to select each file that you need? Of course you are welcome to select each file you need, but lets say that you have either one of the following directory structures:
+Did you know that you don't *have* to select each file that you need? Of course you are welcome to, but lets say that you have either one of the following directory structures:
 
 ```
 images/
@@ -23,6 +24,10 @@ images/
     raw_image_detector_2.tiff
     raw_image_detector_3.tiff
     raw_image_detector_4.tiff
+```
+
+```
+images/
   det1/
     raw_image_detector_1.tiff
   det2/
@@ -33,28 +38,77 @@ images/
     raw_image_detector_4.tiff
 ```
 
-If you have `detector_1`, `detector_2`, `detector_3` and `detector_4` and you select a file the remaining images can be guessed and automatically populated. Ex:
+If you have `detector_1`, `detector_2`, `detector_3` and `detector_4` and you select the `raw_image_detector_2` file the remaining images can be guessed and automatically populated. Ex:
 
 ```
               SELECTED                           MATCHED WITH
-------------------------------------|------------------------------------
-                                      all_dets/raw_image_detector_1.tiff
-all_dets/raw_image_detector_2.tiff    all_dets/raw_image_detector_3.tiff
-                                      all_dets/raw_image_detector_4.tiff
+-----------------------------------||------------------------------------
+                                   -> all_dets/raw_image_detector_1.tiff
+all_dets/raw_image_detector_2.tiff -> all_dets/raw_image_detector_3.tiff
+                                   -> all_dets/raw_image_detector_4.tiff
 
 
-                                      det1/raw_image_detector_1.tiff
-det2/raw_image_detector_2.tiff        det3/raw_image_detector_3.tiff
-                                      det4/raw_image_detector_4.tiff
+                                   -> det1/raw_image_detector_1.tiff
+det2/raw_image_detector_2.tiff     -> det3/raw_image_detector_3.tiff
+                                   -> det4/raw_image_detector_4.tiff
 ```
 
-If you have images that need to be pre-processed as a part of the HEDM worflow see the [Simple Image Series](#simple-image-series) (one image file per detector) or the [Image Stack](#image-stack) (one or more image file per detector). For the LLNL workflow see the [LLNL Import Tool](#llnl-import-tool).
+If you have images that need to be pre-processed as a part of the HEDM worflow see the [Simple Image Series](#simple-image-series) or the [Image Stack](#image-stack) (more than one file per detector). For the LLNL workflow see the [LLNL Import Tool](#llnl-import-tool).
 
 ## Simple Image Series
 
-![Simple Image Series Dialog](img/simple_image_series_dialog.png)
+The Simple Image Series dialog is designed to support pre-processing steps like image aggregation, transforms, dark subtraction, toggling frame order and setting omega ranges. To get started, open the dialog from the import menu: `File->Import->Simple Image Series`.
 
-FIXME: add content
+![Open Simple Image Series Dialog](img/open_sis.png)
+
+
+Once the import tool has opened you have the option to dock it in the GUI or allow it to remain as a standalone dialog.
+
+![Dock Simple Image Series](img/dockable_SIS.gif)
+
+Use the `Select Image Files` to select the image(s) you need to load. See the [file pattern matching](#file-pattern-matching) section for more information on how images can be selected. The order of the frames for multi-frame images can be reversed by toggling the `Reverse Frame Order` option at any point before selecting `Read Files` or `Okay`.
+
+Multi-frame images can be aggregated into a single image by either using the maximum, median or average over all of the frames. This option will be disabled for single-frame images. For longer running aggregation functions a progress bar will be displayed as the calculations are performed.
+
+![Aggregate Image Series](img/aggregate.gif)
+
+Transforms can also be applied to any or all of the detectors if they need it. Simply select the transform that you need from the drop-down menu. Apply multiple transforms in a row to combine them or apply `None` to revert any changes you've made.
+
+![Transform Image Series](img/transform.gif)
+
+Transforms can be applied on a detector-by-detecor basis or across all detectors at once. Toggle the `Apply Selections to All Detectors` on to use the current setting for all detectors. Toggle the option off to set transform per detector and use the `Detector` drop-down menu to select which detector you are applying the transform to.
+
+![Transforms Per Detector](img/transform_per_det.gif)
+
+The `Dark Mode` can be used to create or load an image that will be subtracted from the image series. You can either subtract the median, maximum or average aggregate image, the empty frames (discussed below), or by loading in a file of your choice. If the `File` option is selected the `Select Dark File` button will be enabled and you can select the file that you would like to use.
+
+![Dark Mode Selection](img/dark_mode.png)
+
+*Note*: As you progress you can use the `Read Files` button to apply and load the changes that you've made without closing the dialog or losing any of your current settings.
+
+The images selected earlier will be described in the `Multiframe Options` section of the dialog where you will find a list of all images associated with the currently selected detector. Additionally you will find metadata used for reading in the file(s): `Empty Frames`, `Total Frames`, `Omega Start`, `Omega Stop`, and `Steps`.
+
+  - **Empty Frames**: This value determines how many frames from the beginning of the image series to ignore. Changing this value will affect the `Steps` value.
+  - **Total Frames**: The total number of frames assocaited with the image. This value is pulled from the image series directly and cannot be changed. This value only reflects the orignal total frames, not neccessarily how many frames will actually be used.
+  - **Omega Start**: The start value of the omega wedge. The total omega range (stop - start) cannot be more than 360 degrees.
+  - **Omega Stop**: The stop value of the omega wedge. The total omega range (stop - start) cannot be more than 360 degrees.
+  - **Steps**: The number of steps in the wedge. This value is automatically computed from the omega range and the number of frames to be used (total - empty).
+
+*Note*: Only one omega "wedge" can be set per file and the range will automatically be divided evenly and set per frame. Omega values set in this table are applied across all detectors. If you need have more control over the omega wedges used please see the [Image Stack](#image-stack) tool.
+
+When an unaggregated image series is loaded the omega range for each frame will be indicated at the bottom of the window.
+
+![Omega Range Per Frame](img/omega_range_per_frame.gif)
+
+If the metadata has been changed but you do not need to re-load the images because no pre-processing has changed you can simply apply updates with the `Update Image Data` button.
+
+![Update Image Data](img/update_image_data.png)
+
+The `Information Panel` at the very bottom of the tool will show the path to the parent directory containing the image(s) you've selected, as well as the path to the file used for dark subtraction if one was loaded in.
+
+![Information Panel](img/information.png)
+
+*Note*: Using the `Okay` button will load the images and update the metadata just like the `Read Files` button that is located in the `File Reader` section at the top. The only difference is that if the dialog is not docked it will close after `Okay` is pressed. The last used options will be remembered either way (until a new instrument config is loaded).
 
 ## Image Stack
 
