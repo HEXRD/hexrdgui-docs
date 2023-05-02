@@ -2,7 +2,53 @@
 
 ## Quick Load
 
-FIXME: add content
+The image quick load option is great for rapidly loading images that have already been processed or for loading images that you would like to preview before processing them. Simply go to `File->Open->Images`.
+
+![Quick Load Open Images](img/open_images.png)
+
+Once you have selected the image(s) you would like to load you will be provided a second dialog where you can:
+1. Confirm that correct image has been matched to the correct detector
+2. Apply transforms to an image if needed
+
+![Image Confirmation Dialog](img/match_and_transpose.png)
+
+### File Pattern Matching
+
+Did you know that you don't *have* to select each file that you need? Of course you are welcome to select each file you need, but lets say that you have either one of the following directory structures:
+
+```
+images/
+  all_dets/
+    raw_image_detector_1.tiff
+    raw_image_detector_2.tiff
+    raw_image_detector_3.tiff
+    raw_image_detector_4.tiff
+  det1/
+    raw_image_detector_1.tiff
+  det2/
+    raw_image_detector_2.tiff
+  det3/
+    raw_image_detector_3.tiff
+  det4/
+    raw_image_detector_4.tiff
+```
+
+If you have `detector_1`, `detector_2`, `detector_3` and `detector_4` and you select a file the remaining images can be guessed and automatically populated. Ex:
+
+```
+              SELECTED                           MATCHED WITH
+------------------------------------|------------------------------------
+                                      all_dets/raw_image_detector_1.tiff
+all_dets/raw_image_detector_2.tiff    all_dets/raw_image_detector_3.tiff
+                                      all_dets/raw_image_detector_4.tiff
+
+
+                                      det1/raw_image_detector_1.tiff
+det2/raw_image_detector_2.tiff        det3/raw_image_detector_3.tiff
+                                      det4/raw_image_detector_4.tiff
+```
+
+If you have images that need to be pre-processed as a part of the HEDM worflow see the [Simple Image Series](#simple-image-series) (one image file per detector) or the [Image Stack](#image-stack) (one or more image file per detector). For the LLNL workflow see the [LLNL Import Tool](#llnl-import-tool).
 
 ## Simple Image Series
 
