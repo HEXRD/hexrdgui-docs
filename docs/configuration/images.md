@@ -2,13 +2,115 @@
 
 ## Quick Load
 
-FIXME: add content
+The image quick load option is great for rapidly loading images that have already been processed or for loading images that you would like to preview before processing them. Simply go to `File->Open->Images`.
+
+![Quick Load Open Images](img/open_images.png)
+
+Once you have selected the image(s) you would like to load you will be presented with a second dialog where you can:
+
+1. Confirm that correct image has been matched to the correct detector
+2. Apply transforms to an image if needed
+
+![Image Confirmation Dialog](img/match_and_transpose.png)
+
+### File Pattern Matching
+
+Did you know that you don't *have* to select each file that you need? Of course you are welcome to, but let's say that you have either one of the following directory structures:
+
+```
+images/
+  all_dets/
+    raw_image_detector_1.tiff
+    raw_image_detector_2.tiff
+    raw_image_detector_3.tiff
+    raw_image_detector_4.tiff
+```
+
+```
+images/
+  det1/
+    raw_image_detector_1.tiff
+  det2/
+    raw_image_detector_2.tiff
+  det3/
+    raw_image_detector_3.tiff
+  det4/
+    raw_image_detector_4.tiff
+```
+
+If you have `detector_1`, `detector_2`, `detector_3` and `detector_4`, and you select just one of the files (such as the `raw_image_detector_2.tiff` file), the remaining files can be inferred and automatically populated. Ex:
+
+```
+              SELECTED                        AUTOMATICALLY ADDED
+-----------------------------------||------------------------------------
+                                   -> all_dets/raw_image_detector_1.tiff
+all_dets/raw_image_detector_2.tiff -> all_dets/raw_image_detector_3.tiff
+                                   -> all_dets/raw_image_detector_4.tiff
+
+
+                                   -> det1/raw_image_detector_1.tiff
+det2/raw_image_detector_2.tiff     -> det3/raw_image_detector_3.tiff
+                                   -> det4/raw_image_detector_4.tiff
+```
+
+If you have images that need to be pre-processed as a part of the HEDM worflow, see [Simple Image Series](#simple-image-series) or [Image Stack](#image-stack). For the LLNL workflow see the [LLNL Import Tool](#llnl-import-tool).
 
 ## Simple Image Series
 
-![Simple Image Series Dialog](img/simple_image_series_dialog.png)
+The Simple Image Series dialog is designed to support pre-processing steps like image aggregation, transforms, dark background subtraction, toggling frame order, and setting omega ranges. To get started, open the dialog from the import menu: `File->Import->Simple Image Series`.
 
-FIXME: add content
+![Open Simple Image Series Dialog](img/open_sis.png)
+
+
+Once the import tool has opened you have the option to dock it in the main window or allow it to remain as a standalone dialog.
+
+![Dock Simple Image Series](img/dockable_SIS.gif)
+
+Use the `Select Image Files` to select the image(s) you need to load. See the [file pattern matching](#file-pattern-matching) section for more information on how images can be selected. The order of the frames for multi-frame images can be reversed by toggling the `Reverse Frame Order` option at any point before selecting `Read Files` or `OK`.
+
+Multi-frame images can be aggregated into a single image by either using the maximum, median or average over all of the frames. This option is disabled for single-frame images. For longer running aggregation functions, a progress bar will be displayed as the calculations are performed.
+
+*Note: the unaggregated images are still kept internally and used where needed, such as in the HEDM workflow.*
+
+![Aggregate Image Series](img/aggregate.gif)
+
+Transforms can also be applied to any or all of the detectors if they need it. Simply select the transform that you need from the drop-down menu. Apply multiple transforms in a row to combine them or apply `None` to revert any changes you've made.
+
+![Transform Image Series](img/transform.gif)
+
+Transforms can be applied on a detector-by-detector basis or across all detectors at once. Toggle `Apply Selections to All Detectors` on to use the current setting for all detectors. Toggle the option off to set transforms per detector and use the `Detector` drop-down menu to select which detector you are applying the transform to.
+
+![Transforms Per Detector](img/transform_per_det.gif)
+
+The `Dark Mode` can be used to create or load an image that will be subtracted from the image series. You can subtract the median/maximum/average aggregate image, the empty frames (discussed below), or data from a specified file. If the `File` option is selected the `Select Dark File` button will be enabled and you can select the file that you would like to use.
+
+![Dark Mode Selection](img/dark_mode.png)
+
+*Note*: As you progress you can use the `Read Files` button to apply and load the changes that you've made without closing the dialog and losing any of your current settings.
+
+The image files selected earlier will be described in the `Multiframe Options` section of the dialog where you will find a table of all image files associated with the currently selected detector. Additionally you will find metadata used for reading in the file(s): `Empty Frames`, `Total Frames`, `Omega Start`, `Omega Stop`, and `Steps`. Some of these options are editable.
+
+  - **Empty Frames**: This value determines how many frames from the beginning of the image series to ignore. Changing this value will affect the `Steps` value.
+  - **Total Frames**: The total number of frames associated with the image file. This value is pulled from the image file directly and cannot be changed. This value only reflects the orignal total frames, not neccessarily how many frames will actually be used.
+  - **Omega Start**: The start value of the omega wedge, which is a continuous range of evenly spaced omega values. The total omega range (stop - start) cannot be more than 360 degrees.
+  - **Omega Stop**: The stop value of the omega wedge. The total omega range (stop - start) cannot be more than 360 degrees.
+  - **Steps**: The number of steps in the wedge. This value is automatically computed from the omega range and the number of frames to be used (total - empty).
+
+*Note*: In the Simple Image Series dialog, only one omega "wedge" can be set per file and the range will automatically be divided evenly and set per frame. Omega values set in this table are applied across all detectors. If you have some gaps in omega values and thus need more control over the omega wedges please see the [Image Stack](#image-stack) tool.
+
+When an unaggregated image series is loaded, the omega range for each frame will be indicated at the bottom of the main window.
+
+![Omega Range Per Frame](img/omega_range_per_frame.gif)
+
+If you change the metadata, but you do not need to re-load the images because no pre-processing was changed, you can simply apply updates with the `Update Image Data` button.
+
+![Update Image Data](img/update_image_data.png)
+
+The `Information` panel at the very bottom of the tool will show the path to the parent directory containing the image(s) you've selected, as well as the path to the file used for dark background subtraction if one was loaded in.
+
+![Information Panel](img/information.png)
+
+*Note*: Using the `OK` button will load the images and update the metadata just like the `Read Files` button that is located in the `File Reader` section at the top. The only difference is that if the dialog is not docked it will close after `OK` is pressed. The last used options will be remembered either way (until a new instrument config is loaded).
 
 ## Image Stack
 
