@@ -10,6 +10,31 @@ HEXRDGUI may be installed through several different methods:
 
 **Requires Python 3.10**
 
+### Conda Environment
+
+For any conda installation, it is **highly** recommended that you use separate
+conda environments for separate applications. This is because different
+applications in the same environment may break each others' installation.
+
+For HEXRDGUI, the first step, then, would be to create and activate a conda
+environment, like so:
+
+```bash
+conda create -n hexrdgui
+conda activate hexrdgui
+```
+
+You should see a `(hexrdgui)` near the start of your terminal when the `hexrdgui`
+conda environment is active. Only install `hexrd` and `hexrdgui` into this conda
+environment (along with their dependencies). Do not install other packages. You
+may deactivate the `hexrdgui` conda environment by running `conda deactivate`.
+Notice that after you do this, `(hexrdgui)` should no longer appear near the
+start of your terminal.
+
+Any time you open a new terminal/console, and you wish to run `hexrdgui`, you must
+run `conda activate hexrdgui` first in order to activate the environment. Look for
+the `(hexrdgui)` at the start of your terminal to see if it is active.
+
 ### Release
 To install the latest stable release, run the following command:
 
