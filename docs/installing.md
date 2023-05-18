@@ -17,6 +17,17 @@ To install the latest stable release, run the following command:
 conda install -c hexrd -c conda-forge python=3.10 hexrdgui
 ```
 
+#### Updating the release
+
+If you already have an environment with a release installed, and you wish to
+update to the latest release, run the following command:
+
+```bash
+conda update -c hexrd -c conda-forge hexrd hexrdgui
+```
+
+This will update both `hexrd` and `hexrdgui` to the latest release.
+
 ### Prerelease
 To install the latest changes on master, run the following:
 
@@ -25,6 +36,17 @@ conda install -c hexrd/label/hexrd-prerelease -c hexrd/label/hexrdgui-prerelease
 ```
 
 Note that the prerelease may be unstable.
+
+#### Updating the prerelease
+
+If you already have an environment with a prerelease installed, and you wish to
+update to the latest prerelease, run the following command:
+
+```bash
+conda update -c hexrd/label/hexrd-prerelease -c hexrd/label/hexrdgui-prerelease -c conda-forge hexrd hexrdgui
+```
+
+This will update both `hexrd` and `hexrdgui` to the latest prerelease.
 
 ### Running
 
