@@ -66,6 +66,8 @@ Once the import tool has opened you have the option to dock it in the main windo
 
 ![Dock Simple Image Series](img/dockable_SIS.gif)
 
+### File Reader
+
 Use the `Select Image Files` to select the image(s) you need to load. See the [file pattern matching](#file-pattern-matching) section for more information on how images can be selected. The order of the frames for multi-frame images can be reversed by toggling the `Reverse Frame Order` option at any point before selecting `Read Files` or `OK`.
 
 Multi-frame images can be aggregated into a single image by either using the maximum, median or average over all of the frames. This option is disabled for single-frame images. For longer running aggregation functions, a progress bar will be displayed as the calculations are performed.
@@ -88,6 +90,8 @@ The `Dark Mode` can be used to create or load an image that will be subtracted f
 
 *Note*: As you progress you can use the `Read Files` button to apply and load the changes that you've made without closing the dialog and losing any of your current settings.
 
+### Multiframe Options
+
 The image files selected earlier will be described in the `Multiframe Options` section of the dialog where you will find a table of all image files associated with the currently selected detector. Additionally you will find metadata used for reading in the file(s): `Empty Frames`, `Total Frames`, `Omega Start`, `Omega Stop`, and `Steps`. Some of these options are editable.
 
   - **Empty Frames**: This value determines how many frames from the beginning of the image series to ignore. Changing this value will affect the `Steps` value.
@@ -103,6 +107,8 @@ When an unaggregated image series is loaded, the omega range for each frame will
 ![Omega Range Per Frame](img/omega_range_per_frame.gif)
 
 If you change the metadata, but you do not need to re-load the images because no pre-processing was changed, you can simply apply updates with the `Update Image Data` button.
+
+### Information Panel
 
 ![Update Image Data](img/update_image_data.png)
 
