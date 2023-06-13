@@ -39,6 +39,7 @@ nav:
   - Calibration:
     - calibration/fast_powder.md
     - calibration/composite_laue_and_powder.md
+    - calibration/structureless.md
     - calibration/rotation_series.md
     - calibration/wppf.md
   - HEDM Workflow:
