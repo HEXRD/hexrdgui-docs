@@ -154,7 +154,7 @@ When selecting files for all detectors at once you must select `Search` and use 
 
 ![Find Files For All Detectors](img/ims_files_all_dets.png)
 
-When selecting files per-detector you can either use a regex pattern (as with selecting files for all detectors), but you must deselect the `Apply to All` checkbox. You can also manually select files selecting `Manual Selection` and using the `Select Files` button to open a file browsers. You will need to toggle the current detector in the `Detector` group to continue selecting files.
+When selecting files per-detector you can also use a regex pattern (as with selecting files for all detectors), but you must deselect the `Apply to All` checkbox. You can also manually select files by selecting `Manual Selection` and using the `Select Files` button to open a file browsers. You will need to toggle the current detector in the `Detector` group to continue selecting files.
 
 ![Find Files Per Detector](img/ims_files_per_dets.png)
 
@@ -188,7 +188,7 @@ There may be frames that need to be discarded for various reasons, and the `Fram
 
 The omega values for an image series can be set a few different ways: automatically, manually with the input form, or by loading a `.npy` file.
 
-If `No Omegas` is selected this data is still set, but it will just be automatically computed based on the number of frames for the full [0, 360] degree range. For example, and image series with 30 frames would have a wedge of 12 degrees sequentially assigned to each frame.
+If `No Omega Data` is selected this data is still set, but it will just be automatically computed based on the number of frames for the full [0, 360] degree range. For example, an image series with 30 frames would have a wedge of 12 degrees sequentially assigned to each frame.
 
 If `Add Omega Data` is selected and `Load from File` is selected you will be able to use the `Select File` button to select a `.npy` file to load. The file should consist of an array of wedge arrays. Each wedge array should have three values: `start`, `stop`, and `steps`.
 
@@ -202,7 +202,7 @@ Whether loading from file or manually entering the wedges by hand the expected v
 
 ![Manually Enter Omega](img/manually_enter_omegas.gif)
 
-Once the entire form has been completed you can press `Okay` and the [Simple Image Series](#simple-image-series) dialog will be launched to complete the import!
+Once the entire form has been completed you can press `OK` and the [Simple Image Series](#simple-image-series) dialog will be launched to complete the import!
 
 ## LLNL Import Tool
 
