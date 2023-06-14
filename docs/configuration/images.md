@@ -66,6 +66,8 @@ Once the import tool has opened you have the option to dock it in the main windo
 
 ![Dock Simple Image Series](img/dockable_SIS.gif)
 
+### File Reader
+
 Use the `Select Image Files` to select the image(s) you need to load. See the [file pattern matching](#file-pattern-matching) section for more information on how images can be selected. The order of the frames for multi-frame images can be reversed by toggling the `Reverse Frame Order` option at any point before selecting `Read Files` or `OK`.
 
 Multi-frame images can be aggregated into a single image by either using the maximum, median or average over all of the frames. This option is disabled for single-frame images. For longer running aggregation functions, a progress bar will be displayed as the calculations are performed.
@@ -88,6 +90,8 @@ The `Dark Mode` can be used to create or load an image that will be subtracted f
 
 *Note*: As you progress you can use the `Read Files` button to apply and load the changes that you've made without closing the dialog and losing any of your current settings.
 
+### Multiframe Options
+
 The image files selected earlier will be described in the `Multiframe Options` section of the dialog where you will find a table of all image files associated with the currently selected detector. Additionally you will find metadata used for reading in the file(s): `Empty Frames`, `Total Frames`, `Omega Start`, `Omega Stop`, and `Steps`. Some of these options are editable.
 
   - **Empty Frames**: This value determines how many frames from the beginning of the image series to ignore. Changing this value will affect the `Steps` value.
@@ -104,6 +108,8 @@ When an unaggregated image series is loaded, the omega range for each frame will
 
 If you change the metadata, but you do not need to re-load the images because no pre-processing was changed, you can simply apply updates with the `Update Image Data` button.
 
+### Information Panel
+
 ![Update Image Data](img/update_image_data.png)
 
 The `Information` panel at the very bottom of the tool will show the path to the parent directory containing the image(s) you've selected, as well as the path to the file used for dark background subtraction if one was loaded in.
@@ -114,7 +120,89 @@ The `Information` panel at the very bottom of the tool will show the path to the
 
 ## Image Stack
 
-FIXME: add content
+The Image Stack tool is designed to support loading images in cases where there are multiple (or "stacks") of images that need to be associated with each detector. To get started, open the dialog from the import menu: `File->Import->Image Stack`.
+
+![Open Image Stack Dialog](img/open_image_stack.png)
+
+Once the import tool has opened you have the option to dock it in the GUI or allow it to remain as a standalone dialog.
+
+![Dock Image Stack](img/dock_image_stack.gif)
+
+### Detector
+
+If you would like to set the working directory (i.e. the directory all of your images will be found in) for all of the detectors at once select the `All Detectors` option, or to set the directory for each detector one-by-one select `Single Detector`.
+
+If you select `All Detectors` you will see that you are prompted to enter a [regex search pattern](https://docs.python.org/3/library/re.html#regular-expression-syntax) which can either be an absolute (the path from the root directory) or relative (the path relative to your current directory) path to the parent directory. The parent directory should either contain all of the images for all of the detectors or all of the subdirectories that contain all of the images for all of the detectors. See the [File Pattern Matching](#file-pattern-matching) section for more information about the expected directory structures.
+
+When you press `Search` either the text box at the bottom will be populated with the path that was found or there will be an error dialog if the path could not be resolved.
+
+![Image Stack All Detectors](img/image_stack_all_dets.gif)
+
+*Tip*: Not sure what directory you're starting in? Press `Search` with an empty search pattern and the path will be updated with the absolute path of your current working directory!
+
+![Image Stack Current Path](img/image_stack_det_tip.gif)
+
+If all of your images are not in a single directory or sibling directories you can set each detector individually. Select `Single Detector` and then use the drop-down menu to select each detector and set its directory.
+
+![Image Stack Single Detector](img/image_stack_single_detector.gif)
+
+### Files
+
+File selection can also be performed either per-detector or for all detectors at once.
+
+When selecting files for all detectors at once you must select `Search` and use a [regex search pattern](https://docs.python.org/3/library/re.html#regular-expression-syntax) like in the detector directory section. The pattern will be applied to all directories that have been selected for the detectors and the matches will be used to update the form summary information.
+
+![Find Files For All Detectors](img/ims_files_all_dets.png)
+
+When selecting files per-detector you can also use a regex pattern (as with selecting files for all detectors), but you must deselect the `Apply to All` checkbox. You can also manually select files by selecting `Manual Selection` and using the `Select Files` button to open a file browsers. You will need to toggle the current detector in the `Detector` group to continue selecting files.
+
+![Find Files Per Detector](img/ims_files_per_dets.png)
+
+The `Matching Files Found` will reflect the number of files that were found for each detector after selecting `Search` or manually selecting files. You can also switch to the `Files Found` tab to see exactly which files are being associated with each detector as well as the number of frames for each file.
+
+*Note*: There is currently an expectation that all equivalent files for each detector will contain the same number of frames. If this expectation is not met there will be errors. For example: if image_1 for detector_1 has 10 frames, all other images for detector_1 through detector_n must also have 10 frames. Each detector is also expected to have the same number of images.
+
+![Files Founds Tab](img/files_found_tab.gif)
+
+To start over with your file selection simply select `Clear Selections`.
+
+### Frames
+
+There may be frames that need to be discarded for various reasons, and the `Frames` group has inputs that allow frames to be trimmed.
+
+- **Empty Frames**: This value represents the number of frames from the begining of each image to discard. For example, if you have three files with ten frames each and `Empty Frames` is set to 2, the last 8 frames of each image will be used for a total of 24 frames.
+
+- **Max File Frames**: This value represents the max number of frames from each image to use. For example, if you have three files with ten frames each and `Max File Frames` is set to 8, the first 8 frames of image_1, the first 8 frames of image_2 and the first 8 frames of image_3 will be used for a total of 24 frames. If each image had 8 or less frames nothing would be changed.
+
+- **Max Total Frames**: This value represents the number of frames from the end of the image series to discard. For example, if you have three files with ten frames each and `Max Total Frames` is set to 25, all 10 frames from image_1 and image_2 will be used, but only the last 5 frames from image_3 will be used. There will be a total of 25 frames in the image series.
+
+- **Total Frames**: This is a read-only value that represents the total number of frames in the image series to given the `Empty Frames`, `Max File Frames`, and `Max Total Frames` values.
+
+- **Reverse Frame Order**: The checkbox allows you to reverse the order that the frames are read in. With this option selected the `Empty Frames` will trim the first frames of image_3 instead of image_1 and the `Max Total Frames` will trim the last frames of image_1 instead of image_3.
+
+*Note*: A value of `0` for any of the frame inputs simply means to ignore that field, so if all three are set to `0` all frames will be used.
+
+![Frames Inputs](img/frames.gif)
+
+### Omega
+
+The omega values for an image series can be set a few different ways: automatically, manually with the input form, or by loading a `.npy` file.
+
+If `No Omega Data` is selected this data is still set, but it will just be automatically computed based on the number of frames for the full [0, 360] degree range. For example, an image series with 30 frames would have a wedge of 12 degrees sequentially assigned to each frame.
+
+If `Add Omega Data` is selected and `Load from File` is selected you will be able to use the `Select File` button to select a `.npy` file to load. The file should consist of an array of wedge arrays. Each wedge array should have three values: `start`, `stop`, and `steps`.
+
+Once the file has been loaded the table will be populated with the values so that you can confirm that everything is correct. The table will remain in a read-only state while the `Load from File` option remains checked, however.
+
+![Load Omega File](img/load_omegas.gif)
+
+If `Add Omega Data` is selected and `Load from File` is not selected you will be provided a table that you can add omega wedges to. For each wedge you must provide the `start`, `stop`, and `steps` values.
+
+Whether loading from file or manually entering the wedges by hand the expected values are the same. The `start` and `stop` values represent the range of the wedge and the `steps` value represents the number of frames (steps) in that wedge. The total of all of the steps must match the `Total Frames` displayed in the `Frames` section.
+
+![Manually Enter Omega](img/manually_enter_omegas.gif)
+
+Once the entire form has been completed you can press `OK` and the [Simple Image Series](#simple-image-series) dialog will be launched to complete the import!
 
 ## LLNL Import Tool
 
