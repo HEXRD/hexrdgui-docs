@@ -206,6 +206,8 @@ Once the entire form has been completed you can press `OK` and the [Simple Image
 
 ## LLNL Import Tool
 
+<iframe width="1008" height="567" src="https://www.youtube.com/embed/rNfUfr0CFjs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 The LLNL workflow has its own import tool designed to allow one or more images to be loaded, transformed, and cropped before loading them into the GUI for analysis. To get started, launch the tool by going to `File->Import->LLNL Import Tool`.
 
 ![LLNL Import Menu Option](img/menu_llnl_import.png)
