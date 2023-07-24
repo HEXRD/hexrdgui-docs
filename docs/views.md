@@ -15,3 +15,7 @@ FIXME: add content
 ## Stereographic View
 
 FIXME: add content
+
+## Unaggregated Image Series
+
+FIXME: add content
