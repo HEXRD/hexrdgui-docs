@@ -59,8 +59,6 @@ The HKLs that are above that structure factor will be automatically selected.
 
 ### Fitting Options
 
-FIXME: add content for these:
-
 "Number of polar subdivisions" is the number of polar pixel grid subdivisions.
 
 The "Threshold" should be set high enough so that background noise will not be
@@ -68,9 +66,11 @@ falsely identified as a spot, but low enough so that valid spots will not be
 filtered out.
 
 The "Refit" options are used to filter out reflections whose predicted values
-are too far away from the actual centroid. "Refit pixel scale" and
-"Refit ome step scale" are used to filter out reflections whose centroid is too
-far away in pixels and omega value, respectively.
+are too far away from the actual centroid before performing a final fit at the
+end. "Refit pixel scale" and "Refit ome step scale" are used to filter out
+reflections whose centroid is too far away in pixels and omega value,
+respectively. Then, a final fit is performed with the filtered reflections
+before finishing.
 
 If "Write out spots files" is checked, the raw spots data will be written
 out in HDF5 format to the directory selected via the "Select Directory" button.
