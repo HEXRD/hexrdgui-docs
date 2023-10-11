@@ -35,6 +35,41 @@ Any time you open a new terminal/console, and you wish to run `hexrdgui`, you mu
 run `conda activate hexrdgui` first in order to activate the environment. Look for
 the `(hexrdgui)` at the start of your terminal to see if it is active.
 
+#### Mamba Solver
+
+Conda has a sophisticated system for determining which versions of dependencies
+to install so that all dependencies are compatible with one another.
+However, the default conda dependency solver can be very slow. For HEXRDGUI
+installations, we have often seen the default solver take a long time, and we
+have sometimes even witnessed the solver run indefinitely without ever
+finishing. This would make HEXRDGUI impossible to install!
+
+Fortunately, conda officially supports another solver: the
+[libmamba solver](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community),
+which is the solver used by [mamba](https://mamba.readthedocs.io/en/latest/).
+
+Installing and setting up this solver will typically make your `conda install`
+and `conda update` commands **significantly** faster. If you do not have
+the libmamba solver installed in your base conda environment, start with this
+command:
+
+```bash
+conda install -n base conda-libmamba-solver
+```
+
+Next, while your [HEXRDGUI conda environment](#conda-environment) is active,
+run the following command to use the libmamba solver in that environment:
+
+```bash
+conda config --env --set solver libmamba
+```
+
+If you wish to use libmamba in all of your environments (not just your HEXRDGUI
+environment), remove the `--env` part.
+
+Now, all of your `conda install` and `conda update` commands should run
+significantly faster!
+
 ### Release
 To install the latest stable release, run the following command:
 
