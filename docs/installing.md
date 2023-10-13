@@ -54,7 +54,7 @@ the libmamba solver installed in your base conda environment, start with this
 command:
 
 ```bash
-conda install -n base conda-libmamba-solver
+conda install -n base -c conda-forge conda-libmamba-solver
 ```
 
 Next, while your [HEXRDGUI conda environment](#conda-environment) is active,
