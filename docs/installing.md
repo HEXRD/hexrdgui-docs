@@ -150,13 +150,12 @@ Finally, from the directory containing the hexrd and hexrdgui git repositories, 
 
 #### Linux and Mac OS X
 ```bash
-CONDA_BUILD=1 pip install --no-build-isolation --no-deps -U -e hexrd
-CONDA_BUILD=1 pip install --no-build-isolation --no-deps -U -e hexrdgui
+pip install --no-build-isolation --no-deps -U -e hexrd
+pip install --no-build-isolation --no-deps -U -e hexrdgui
 ```
 
 #### Windows
 ```bash
-set CONDA_BUILD=1;
 pip install --no-build-isolation --no-deps -U -e hexrd;
 pip install --no-build-isolation --no-deps -U -e hexrdgui
 ```
