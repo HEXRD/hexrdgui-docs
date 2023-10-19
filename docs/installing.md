@@ -92,7 +92,7 @@ This will update both `hexrd` and `hexrdgui` to the latest release.
 To install the latest changes on master, run the following:
 
 ```bash
-conda install -c hexrd/label/hexrd-prerelease -c hexrd/label/hexrdgui-prerelease -c conda-forge python=3.11 hexrdgui
+conda install -c hexrd/label/prerelease -c conda-forge python=3.11 hexrdgui
 ```
 
 Note that the prerelease may be unstable.
@@ -103,7 +103,7 @@ If you already have an environment with a prerelease installed, and you wish to
 update to the latest prerelease, run the following command:
 
 ```bash
-conda update -c hexrd/label/hexrd-prerelease -c hexrd/label/hexrdgui-prerelease -c conda-forge hexrd hexrdgui
+conda update -c hexrd/label/prerelease -c conda-forge hexrd hexrdgui
 ```
 
 This will update both `hexrd` and `hexrdgui` to the latest prerelease.
@@ -143,7 +143,7 @@ conda install -c conda-forge python=3.11
 
 Next, install the dependencies using the prerelease conda package:
 ```bash
-conda install -c hexrd/label/hexrdgui-prerelease -c hexrd/label/hexrd-prerelease -c conda-forge hexrdgui
+conda install -c hexrd/label/prerelease -c conda-forge hexrdgui
 ```
 
 Finally, from the directory containing the hexrd and hexrdgui git repositories, use pip to link into the environment for development:
