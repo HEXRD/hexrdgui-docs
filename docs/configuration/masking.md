@@ -4,14 +4,14 @@
 
 The tools listed below are available to use in either the raw or polar view modes.
 
-### Elipse and Rectangle
+### Ellipse and Rectangle
 The ellipse/rectangle masking tool provides a way to easily draw rectangular or ellipsoidal bounds around selected regions. This can be found in the `Edit` menu: `Edit` -> `Masks` -> `Draw` -> `Ellipse/Rectangle`.
 
 ![Shape Masking Menu Option](img/ellipse_rectangle_menu.png)
 
 To add a new mask, select the shape that you would like to draw from the drop-down menu in the dialog, then left-click and drag to draw the bounds. Drawn shapes can be adjusted if needed - simply select the shape (the current selection will be highlighted red) and then left-click and drag (or use the keyboard arrow keys) to translate the shape. To rotate, hold shift and left-click or hold shift and use the keyboard arrows.
 
-While rectangle/ellipse masks can be rotated and translated, they cannot be resized. If you find that you need to completely re-do a mask (or simply remove an unneccesary one) use the `undo` option.
+While rectangle/ellipse masks can be rotated and translated, they cannot be resized. If you find that you need to completely re-do a mask (or simply remove an unnecessary one) use the `undo` option.
 
 ![Ellipse Rectangle Masking Demo](img/ellipse_rectangle.gif)
 
