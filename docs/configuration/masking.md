@@ -72,4 +72,4 @@ Masks can also be quickly shown or hidden with the `Hide All Masks` and `Show Al
 
 ![Import/Toggle/View All Masks](img/mask_manger_all.gif)
 
-The `Masks to Panel Buffer` allows masks to be combined with the [panel buffer](instrument/#panel-buffers).
+For some detectors there may be dead spots or regions that always need to be masked no matter the experiment. For that the [panel buffer](instrument/#panel-buffers) is the best tool to use, whereas the rest of the masking tools listed here aer typically best for specific samples with signal that needs to be masked. However if you find that you have a panel buffer mask that needs some fine-tuning, the `Masks to Panel Buffer` button allows the panel buffer and hand-drawn masks to be combined.
