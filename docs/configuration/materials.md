@@ -93,6 +93,26 @@ the number of rows in the reflections table. If an HKL falls below the
 If an HKL falls below the `Min d-spacing (displayed)`, it will appear in the table,
 but it will be grayed out and not selectable.
 
+#### Copy to Clipboard
+
+After selecting rows, if a row in the table is right-clicked, a context menu will
+appear that provides an option to copy the selected rows to the clipboard:
+
+![Reflections Table Copy to Clipboard](img/reflections_table_copy_to_clipboard.png)
+
+If "Copy to Clipboard" is clicked, the clipboard will contain the
+selected rows in CSV format. The above selection produces the following text
+in the clipboard:
+
+```
+ID,{hkl},d-spacing (Å),2θ (°),|F|²,Iₚ,Multiplicity
+0,1 1 1,3.12,3.17,100.00,100.00,8
+3,3 1 1,1.63,6.08,19.52,15.93,24
+5,4 0 0,1.35,7.33,10.77,1.51,6
+```
+
+This can be pasted into spreadsheet software, such as Microsoft Excel.
+
 ### General Settings
 
 The general settings of the material include everything within the `General`
