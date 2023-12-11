@@ -148,15 +148,8 @@ conda install -c hexrd/label/prerelease -c conda-forge hexrdgui
 
 Finally, from the directory containing the hexrd and hexrdgui git repositories, use pip to link into the environment for development:
 
-#### Linux and Mac OS X
 ```bash
 pip install --no-build-isolation --no-deps -U -e hexrd
-pip install --no-build-isolation --no-deps -U -e hexrdgui
-```
-
-#### Windows
-```bash
-pip install --no-build-isolation --no-deps -U -e hexrd;
 pip install --no-build-isolation --no-deps -U -e hexrdgui
 ```
 
