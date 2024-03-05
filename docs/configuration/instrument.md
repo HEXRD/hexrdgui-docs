@@ -131,6 +131,8 @@ The `Reset Configuration` button at the bottom may be used to reset the
 configuration (see [here](#resetting-the-instrument-configuration) for more
 details).
 
+*Note: increase the Cartesian pixel size (e.g., to 1) for faster interactivity*
+
 ## Additional Details
 
 ### Euler Angle Convention
@@ -150,3 +152,116 @@ using the selected Euler angle convention.
 When the instrument configuration is first loaded, it is saved internally, so that it
 may be restored at any time by clicking the `Reset Configuration` button. This
 feature is available in both the slider view, and via `Edit->Reset Instrument Config`.
+
+### Detectors with subpanels
+
+![ROI Dexelas Cartesian View](img/roi_dexelas_cartesian_view.png)
+
+When a detector contains subpanels (e.g., Dexela, Pilatus, Eiger), the subpanels
+are not always perfectly aligned with one another. This misalignment can
+introduce greater inaccuracies when performing analysis on the data.
+
+Treating the subpanels as separate detectors, where each subpanel has its own
+tilt/translation (thus allowing each subpanel to take into account any misalignment),
+has been shown to improve the quality of calibration and
+accuracy of subsequent analysis. HEXRDGUI provides a special way to do this
+(see [here](https://github.com/HEXRD/examples/blob/master/state_examples/Dexelas_HEDM/roi_dexelas_hedm.h5) for the example used in this section).
+
+First, an instrument config needs to be created that contains a separate detector
+entry for each subpanel. For example, see here two subpanels (`ff1_0_0` and
+`ff1_0_1`) out of the four subpanels for a single Dexela panel (`ff1`):
+
+```yaml
+detectors:
+  ff1_0_0:
+    pixels:
+      rows: 1944
+      columns: 1536
+      size: [0.0748, 0.0748]
+      roi: [0, 0]
+    group: ff1
+    saturation_level: 15000
+    transform:
+      tilt: [0, 0, 0]
+      translation: [66, 76, -670]
+  ff1_0_1:
+    pixels:
+      rows: 1944
+      columns: 1536
+      size: [0.0748, 0.0748]
+      roi: [0, 1536]
+    group: ff1
+    saturation_level: 15000
+    transform:
+      tilt: [0, 0, 0]
+      translation: [181, 76, -670]
+```
+
+If the image data is already split up into separate subpanels, each subpanel can
+just be treated as a separate detector with no other special considerations
+(analysis can be performed as usual).
+However, the image data most likely contains the data from each subpanel stitched
+together. In this case, we need to define regions in the image data for each
+subpanel.
+
+In the configuration, each subpanel entry should contain an `roi`
+(region-of-interest) entry under
+`pixels`, which indicates the `start` in pixel (`ij`) coordinates
+for that subpanel within the larger panel image.
+The `rows` and `columns` should be equal to the size of the subpanel
+(not the whole panel). These are used to determine how many pixels to read
+past the start `roi` values. Dexela detectors are `3888x3072`, and contain 4
+subpanels, where each subpanel is `1944x1536`. For Dexela detectors, the ROIs
+for subpanels `ff1_0_0`, `ff1_0_1`, `ff1_1_0`, and `ff1_1_1` are `[0, 0]`,
+`[0, 1536]`, `[1944, 0]`, and `[1944, 1536]`, respectively.
+
+Once the `roi` is set up properly, a `group` key must be present as well, which
+indicates which panel each subpanel belongs to. For Dexela detectors, this usually
+means `ff1_0_0`, `ff1_0_1`, `ff1_1_0`, and `ff1_1_1` are all in group `ff1`. The
+`group` key can be anything, as long as all subpanels within the same panel contain
+the same `group` key.
+
+When the `roi` and `group` keys are present for each detector, the
+[Simple Image Series Loader](images.md#simple-image-series) may be used to load
+in the two larger panel images. The software will automatically detect that it is
+set up for subpanels, and allow the user to load in the larger panel images
+(rather than a smaller image for each subpanel).
+
+![ROI Simple Image Series Load](img/roi_simple_image_series_load.gif)
+
+The files may be loaded with or without aggregation (depending on the
+Simple Image Series settings).
+
+After loading, a few special options for this subpanel setup are present within
+HEXRDGUI. With the [raw view](../views.md#raw-view) active, a checkbox appears
+in the raw view options titled "Stitch ROI Images". If checked, the images will
+be stitched together, with their `group` label at the top.
+
+![ROI Stitching](img/roi_stitch_subpanels.gif)
+
+After the subpanels have been stitched together, the mouse hover information at
+the bottom of the window also displays the current subpanel that the mouse is
+hovering over.
+
+The other raw view settings (including `Tabbed View`,
+`Show Saturation`, and `Show Zoom Dialog`) all automatically take into account this
+stitched setting. This is helpful for visualizing the data from the whole panels
+(as loaded). However, all calculations (including the simulated overlays displayed
+on the raw view) still treat each subpanel as a separate detector.
+
+Another special option appears in the [slider view](#slider-view) labeled
+"Lock ROI Group Transformations". If checked, translating/rotating one subpanel
+via a slider will translate/rotate all other subpanels in the same group by the
+same amount (for rotation, the subpanels will be rotated about the center of
+the subpanels).
+
+*Note: increase the Cartesian pixel size (e.g., to 1) for faster interactivity*
+
+![ROI Lock Transforms Sliders](img/roi_lock_transforms_sliders.gif)
+
+The [HEDM workflow](../hedm/overview.md) can be performed as usual, where each
+subpanel will be treated as a separate detector.
+
+In the near future, we plan to allow for additional constraints to be placed
+between subpanels when performing instrument calibration, so that the relative
+translations/tilts between subpanels may be fixed.
