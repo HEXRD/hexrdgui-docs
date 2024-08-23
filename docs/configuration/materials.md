@@ -155,7 +155,7 @@ the site will let the user edit its name as shown below
 ![Atom site renaming](img/site_rename.png)
 
 Each site has a unique position in the unit cell given by the fractional coordinates. The
-user can specify this location in the `Fractional Coords` tab. Remember that the space group
+user can specify this location in the `Fractional Coords` parameters. Remember that the space group
 symmetry introduces degeneracy in the different positions. For e.g. for an FCC crystal
 the coordinates `[0, 0, 0]` is equivalent to `[1/2, 1/2, 0]`, `[1, 0, 0]`, `[1/2, 1, 0]`, $\cdots$ etc.
 
