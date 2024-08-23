@@ -179,7 +179,7 @@ $$
 
 It is assumed that the temperature factors are isotropic by default. however, anisotropic thermal parameters can also be specified as a full tensor.
 
-The structure tab also provides some helper functions to ensure accuracy of the material. The `remove duplicate atoms` is one such function. This button with check the equivalence of different sites and remove the ones which are too close to each other by crystal symmetry. Finally, if the user are happy with the changes made in the structure tab and want to apply those changes to the material, they need to press the `Apply` button. If the user is unhappy about the changes made, they can always go back to the starting structure using the `Reset` button.
+The structure tab also provides some helper functions to ensure accuracy of the material. The `remove duplicate atoms` is one such function. This button will check the equivalence of different sites and remove the ones which are too close to each other by crystal symmetry. Finally, if the user are happy with the changes made in the structure tab and want to apply those changes to the material, they need to press the `Apply` button. If the user is unhappy about the changes made, they can always go back to the starting structure using the `Reset` button.
 
 
 ### Material Properties
