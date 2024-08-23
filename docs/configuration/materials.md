@@ -193,7 +193,7 @@ An example properties tab for ambient condition Nickel is shown below
 
 ![Material Properties](img/material_properties_tab.png)
 
-The top panel can be used to specify the elastic constants of the material usig either the stiffness or compliance tensor. The units for the entries are in GPa or GPa$^{-1}$ respectively. Due to cubic crystal symmetry of Nickel, the Elastic Constant has only three independent variables, namely the $C_{11}$, $C_{12}$ and $C_{44}$. Depending on the crystal structure, the number of independent component of stiffness or compliance matrix will automatically be adjusted.
+The top panel can be used to specify the elastic constants of the material using either the stiffness or compliance tensor. The units for the entries are in GPa or GPa$^{-1}$ respectively. Due to cubic crystal symmetry of Nickel, the Elastic Constant has only three independent variables, namely the $C_{11}$, $C_{12}$ and $C_{44}$. Depending on the crystal structure, the number of independent component of stiffness or compliance matrix will automatically be adjusted.
 
 The space group, lattice parameters and atomic coordinates is used to compute the theoretical density (g/cm$^{3}$), the volume of the unit cell ($\mathring{\text{A}}^{3}$) and the volume of unit cell per atom ($\mathring{\text{A}}^{3}$). These quantities are displayed in the material properties tab as well.
 
