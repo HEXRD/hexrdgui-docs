@@ -134,8 +134,69 @@ the ratio value will cause `a` to change to reflect the new ratio value.
 
 ### Material Structure
 
-FIXME: add content
+The space group and lattice parameters of a material are sufficient to determine
+the list of allowed reflections and the $2\theta$ values for these reflections. 
+However, in order to compute the correct structure factors, additional information
+is required about the positions of atoms in the unit cell. The `structure` tab lets
+the user input this information. 
+
+![Material structures tab](img/material_structure_tab.png)
+
+The following information is needed to fully define the atomic structure of a material:
+
+1. fractional coordinates of the site
+2. site occupancy
+3. Debye-waller factor for the atoms
+
+The user can select or remove a site. However, at least one site is required. The default
+name of the site is `Site1`, `Site2` etc. These are editable fields and double-clicking on
+the site will let the user edit its name as shown below
+
+![Atom site renaming](img/site_rename.png)
+
+Each site has a unique position in the unit cell given by the fractional coordinates. The
+user can specify this location in the `Fractional Coords` parameters. Remember that the space group
+symmetry introduces degeneracy in the different positions. For e.g. for an FCC crystal
+the coordinates `[0, 0, 0]` is equivalent to `[1/2, 1/2, 0]`, `[1, 0, 0]`, `[1/2, 1, 0]`, $\cdots$ etc.
+
+Within each site, the user can select the atom that sits on that site. The selection can be
+made using the `Select Atom Types` button. The button opens a periodic table that lets the
+user select the atom type at the site location as shown below:
+
+![Atom selector for a site](img/atom_selector_periodic_table.png)
+
+Typically, one atom sits at each site.  However, 
+It is possible for multiple atoms to occupy the same atomic site with fractional 
+occupancy (summing up to 1). A relevant material system where this is the case are 
+disordered alloys. In this case the user needs to select multiple atoms for the same
+site position and set the occupancies correctly.
+
+Finally, the thermal factor can either be specified as the `U` which represents the mean-squared displacement or `B` which is referred to as the B-factor in literature. The two numbers are related to each other via the relationship
+
+$$
+B = 8\pi^{2}U
+$$
+
+It is assumed that the temperature factors are isotropic by default. however, anisotropic thermal parameters can also be specified as a full tensor.
+
+The structure tab also provides some helper functions to ensure accuracy of the material. The `remove duplicate atoms` is one such function. This button will check the equivalence of different sites and remove the ones which are too close to each other by crystal symmetry. Finally, if the user are happy with the changes made in the structure tab and want to apply those changes to the material, they need to press the `Apply` button. If the user is unhappy about the changes made, they can always go back to the starting structure using the `Reset` button.
+
 
 ### Material Properties
 
-FIXME: add content
+The properties tab has two primary functions:
+
+1. Summarize the property of the material based on the space group, lattice parameters and atomic coordinates.
+2. Let the user input other material properties such as the Elastic Tensor.
+
+An example properties tab for ambient condition Nickel is shown below
+
+![Material Properties](img/material_properties_tab.png)
+
+The top panel can be used to specify the elastic constants of the material using either the stiffness or compliance tensor. The units for the entries are in GPa or GPa$^{-1}$ respectively. Due to cubic crystal symmetry of Nickel, the Elastic Constant has only three independent variables, namely the $C_{11}$, $C_{12}$ and $C_{44}$. Depending on the crystal structure, the number of independent component of stiffness or compliance matrix will automatically be adjusted.
+
+The space group, lattice parameters and atomic coordinates are used to compute the theoretical density (g/cm$^{3}$), the volume of the unit cell ($\mathring{\text{A}}^{3}$) and the volume of unit cell per atom ($\mathring{\text{A}}^{3}$). These quantities are displayed in the material properties tab as well.
+
+The properties tab also implements a third order [Birch-Murnaghan (BM)](https://en.wikipedia.org/wiki/Birch–Murnaghan_equation_of_state) equation of state to compute the change in volume of the unit cell based on an input pressure-temperature condition. The `Show PT Slider` button opens up the window. A `JCPDS` (Joint Committee on Powder Diffraction Standards) file or manual input of BM EOS parameters is required. An example for Ni at 38 GPa is shown in the image below. The lattice parameters, density and volume of the unit cell are automatically updated depending on the pressure-temperature values.
+
+ ![3rd order Birch-Murnaghan Equation of State](img/BM_equation_of_state.png)
