@@ -148,7 +148,7 @@ The following information is needed to fully define the atomic structure of a ma
 2. site occupancy
 3. Debye-waller factor for the atoms
 
-The user can select of remove a site. However, at least one site is required. The default
+The user can select or remove a site. However, at least one site is required. The default
 name of the site is `Site1`, `Site2` etc. These are editable fields and double-clicking on
 the site will let the user edit its name as shown below
 
