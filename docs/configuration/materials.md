@@ -137,7 +137,7 @@ the ratio value will cause `a` to change to reflect the new ratio value.
 The space group and lattice parameters of a material are sufficient to determine
 the list of allowed reflections and the $2\theta$ values for these reflections. 
 However, in order to compute the correct structure factors, additional information
-is required about the position of atoms in the unit cell. The `structure` tab lets
+is required about the positions of atoms in the unit cell. The `structure` tab lets
 the user input this information. 
 
 ![Material structures tab](img/material_structure_tab.png)
