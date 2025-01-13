@@ -3,7 +3,7 @@
 HEXRDGUI may be installed through several different methods:
 
 * [Conda](#release)
-* [Binary Packages](#binary-packages)
+* [Binary Packages](downloads.md)
 * [Pip](#pip)
 
 ## Conda
@@ -116,12 +116,6 @@ hexrdgui
 ```
 
 See `hexrdgui --help` for some command line options.
-
-## Binary Packages
-
-Binary packages for Windows, Mac, and Linux can be found in the "Assets" attached to most of the main [releases](https://github.com/HEXRD/hexrdgui/releases).
-
-Binary installs are native applications, and they are started on double-click.
 
 ## Development
 
