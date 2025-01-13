@@ -4,7 +4,6 @@ Binary packages for the latest release (1.1.2) may be downloaded by clicking
 one of the button links below.
 
 [<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Windows (ZIP)-lime?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.2/HEXRDGUI-1.1.2.zip)
-<!--- [<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Windows (MSI)-red?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.2/HEXRDGUI-1.1.2.msi) --!>
 [<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/MacOS-blue?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.2/HEXRDGUI-1.1.2.dmg)
 [<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Linux-orange?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.2/HEXRDGUI-1.1.2.tar.gz)
 
