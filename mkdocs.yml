@@ -43,10 +43,11 @@ nav:
     - calibration/structureless.md
     - calibration/rotation_series.md
     - calibration/wppf.md
-  - HEDM Workflow:
-    - hedm/overview.md
-    - hedm/indexing.md
-    - hedm/fit_grains.md
+  - Workflows:
+    - HEDM:
+      - workflows/hedm/overview.md
+      - workflows/hedm/indexing.md
+      - workflows/hedm/fit_grains.md
   - gallery.md
   - contributing.md
   - issues.md

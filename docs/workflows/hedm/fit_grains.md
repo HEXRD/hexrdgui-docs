@@ -15,7 +15,7 @@ If the [indexing step](indexing.md) was performed in this session, there will
 be an option to use the grains from indexing. There are also options to
 use grains from a `grains.out` file or from `accepted_orientations.dat`; if
 either of these are chosen, make sure that there is a material in the
-[materials panel](../configuration/materials.md#materials-panel) identical to
+[materials panel](../../configuration/materials.md#materials-panel) identical to
 the material that was used to generate those grains.
 
 ## Fit Grains Options
@@ -49,7 +49,7 @@ will appear, enabling you to compare the grains to the eta-omega maps.
 
 The "Selected Material" is the material that will be used in Fit Grains.
 Click "Choose HKLs" to modify the HKLs that will be used
-(see the [Reflections Table](../configuration/materials.md#reflections-table) for more information).
+(see the [Reflections Table](../../configuration/materials.md#reflections-table) for more information).
 It is very typical to automatically select HKLs that are above
 a certain structure factor. This can be done on the next row that says
 "Select HKLs by min |F|²". Enter a minimum structure factor (note that this
@@ -204,7 +204,7 @@ will export the grains in the HEXRD "grains.out" format, which is a txt format
 that may be easily opened for viewing. After exporting, these grains may be
 viewed again in future runs by clicking
 "File"->"Open"->"Grain Fitting Results" (be sure that the material in
-the [materials panel](../configuration/materials.md#materials-panel)
+the [materials panel](../../configuration/materials.md#materials-panel)
 is correctly set to the same material before doing this).
 
 ### Grains Canvas
@@ -228,7 +228,7 @@ If "Convert Strain to Stress" is checked, the elastic tensor for the material
 is used to convert all "Color By ... Stress" options to "Color By ... Strain".
 In order to use this, the elastic tensor for the material must be properly
 set in the "Properties" tab of the
-[materials panel](../configuration/materials.md#materials-panel). If this is
+[materials panel](../../configuration/materials.md#materials-panel). If this is
 not set, when you check "Convert Strain to Stress", you will likely see a
 "Singular matrix" error in the messages box.
 
@@ -265,11 +265,11 @@ image files. Scripts could be used to perform batch processing.
 ### After Fit Grains
 
 After fit-grains is complete, note that you also have the
-option to create [rotation series overlays](../configuration/overlays.md#rotation-series-overlays)
+option to create [rotation series overlays](../../configuration/overlays.md#rotation-series-overlays)
 from the output grain data via the "Load" button in the rotation
 series overlay editor.
 
 A typical next step after running Fit Grains is to perform
-[HEDM calibration](../calibration/rotation_series.md) in order to calibrate
+[HEDM calibration](../../calibration/rotation_series.md) in order to calibrate
 your instrument (or any parameters you wish to mark as refinable) to the
 grains data.

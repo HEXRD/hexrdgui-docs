@@ -259,7 +259,7 @@ the subpanels).
 
 ![ROI Lock Transforms Sliders](img/roi_lock_transforms_sliders.gif)
 
-The [HEDM workflow](../hedm/overview.md) can be performed as usual, where each
+The [HEDM workflow](../workflows/hedm/overview.md) can be performed as usual, where each
 subpanel will be treated as a separate detector.
 
 In the near future, we plan to allow for additional constraints to be placed
