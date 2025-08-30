@@ -44,6 +44,7 @@ nav:
     - calibration/rotation_series.md
     - calibration/wppf.md
   - Workflows:
+    - workflows/fiddle/fiddle.md
     - HEDM:
       - workflows/hedm/overview.md
       - workflows/hedm/indexing.md
