@@ -8,7 +8,7 @@ HEXRDGUI may be installed through several different methods:
 
 ## Conda
 
-**Requires Python 3.11**
+**Requires Python >=3.11**
 
 ### Conda Environment
 
@@ -74,7 +74,7 @@ significantly faster!
 To install the latest stable release, run the following command:
 
 ```bash
-conda install -c hexrd -c conda-forge python=3.11 hexrdgui
+conda install -c hexrd -c conda-forge python=3.14 hexrdgui
 ```
 
 #### Updating the release
@@ -92,7 +92,7 @@ This will update both `hexrd` and `hexrdgui` to the latest release.
 To install the latest changes on master, run the following:
 
 ```bash
-conda install -c hexrd/label/prerelease -c conda-forge python=3.11 hexrdgui
+conda install -c hexrd/label/prerelease -c conda-forge python=3.14 hexrdgui
 ```
 
 Note that the prerelease may be unstable.
@@ -119,7 +119,7 @@ See `hexrdgui --help` for some command line options.
 
 ## Development
 
-**Requires Python 3.11**
+**Requires Python >=3.11**
 
 First clone the Git repositories:
 
@@ -130,9 +130,9 @@ git clone https://github.com/HEXRD/hexrdgui.git
 
 ### Conda
 
-Ensure that Python 3.11 is installed in your environment. If it is not, run the following command:
+Ensure that Python >=3.11 (Python 3.14 preferred) is installed in your environment. If it is not, run the following command:
 ```bash
-conda install -c conda-forge python=3.11
+conda install -c conda-forge python=3.14
 ```
 
 Next, install the dependencies using the prerelease conda package:
