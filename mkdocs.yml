@@ -47,6 +47,7 @@ nav:
     - hedm/overview.md
     - hedm/indexing.md
     - hedm/fit_grains.md
+  - gallery.md
   - contributing.md
   - issues.md
   - citing.md
