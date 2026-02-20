@@ -1,12 +1,13 @@
 # Downloads
 
-Binary packages for the latest release (1.1.3) may be downloaded by clicking
+Binary packages for the latest release (1.1.8) may be downloaded by clicking
 one of the button links below.
 
-[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Windows (ZIP)-lime?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.3/HEXRDGUI-1.1.3.zip)
-[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Windows (MSI)-red?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.3/HEXRDGUI-1.1.3.msi)
-[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/MacOS-blue?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.3/HEXRDGUI-1.1.3.dmg)
-[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Linux-orange?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.3/HEXRDGUI-1.1.3.tar.gz)
+[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Windows (ZIP)-lime?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.8/HEXRDGUI-1.1.8.zip)
+[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Windows (MSI)-red?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.8/HEXRDGUI-1.1.8.msi)
+[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/MacOS (Apple Silicon)-blue?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.8/HEXRDGUI-1.1.8-arm64.dmg)
+[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/MacOS (Intel)-2f5496?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.8/HEXRDGUI-1.1.8-x86.dmg)
+[<img style="height: 50px; width: auto;" src="https://img.shields.io/badge/Linux-orange?style=plastic">](https://github.com/HEXRD/hexrdgui/releases/download/1.1.8/HEXRDGUI-1.1.8.tar.gz)
 
 The MSI and DMG are native applications, and they are started on double-click.
 
