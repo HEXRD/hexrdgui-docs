@@ -11,7 +11,7 @@ links to the corresponding documentation.
 
 * [Indexing](indexing.md) (find-orientations) - determine the number of grains and their approximate orientations
 * [Fitting](fit_grains.md) (fit-grains) - fit the grains more precisely to the image data
-* [Calibration](../calibration/rotation_series.md) - calibrate an instrument and grains using the fitted grain data
+* [Calibration](../../calibration/rotation_series.md) - calibrate an instrument and grains using the fitted grain data
 
 The images provided in the documentation were created using the state
 file example found [here](https://github.com/hexrd/examples/tree/master/state_examples/Dexelas_HEDM).

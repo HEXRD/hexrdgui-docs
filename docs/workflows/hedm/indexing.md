@@ -22,19 +22,19 @@ corresponds to specific rotation angles (which are referred to as
 
 In order to correctly set up omega values for an image series, it
 is necessary to load in the data using either the
-[Simple Image Series Loader](../configuration/images.md#simple-image-series)
-or the more advanced [Image Stack Loader](../configuration/images.md#image-stack).
+[Simple Image Series Loader](../../configuration/images.md#simple-image-series)
+or the more advanced [Image Stack Loader](../../configuration/images.md#image-stack).
 Performing aggregation on the data is optional - the original
 unaggregated image stack will be used during the HEDM workflow either
 way (and performing aggregation can sometimes be more helpful for visualization
 in the canvas). While loading in the data, please ensure that the omega values are
-set correctly. See [here](../views.md#unaggregated-image-series) for more
+set correctly. See [here](../../views.md#unaggregated-image-series) for more
 information about visualizing unaggregated image series data.
 
 ## Setting up the Material
 
 A material must have been created or loaded that corresponds to
-the grain material. See the [materials](../configuration/materials.md)
+the grain material. See the [materials](../../configuration/materials.md)
 section for more information.
 
 For our example, we will use ruby, which is already provided in the
@@ -75,7 +75,7 @@ match, but we do not check in the program that they match).
 If you select to generate the Eta-Omega maps, you must then choose which
 HKLs to use. Typically, you want to choose a few HKLs that have the
 strongest signal in your image data. If you need help selecting these,
-make sure your grain material is selected in the [materials panel](../configuration/materials.md#materials-panel),
+make sure your grain material is selected in the [materials panel](../../configuration/materials.md#materials-panel),
 and then, in the main canvas, hover your mouse over the spots with the
 strongest signals in order to see which HKLs they are associated with
 (pixel information, including any HKLs associated with that pixel,
@@ -83,7 +83,7 @@ is provided in the bottom-left corner of the main window
 as the mouse is hovered over pixels in the main canvas).
 
 The `Choose HKLs` button opens up the selected material's
-[reflections table](../configuration/materials.md#reflections-table),
+[reflections table](../../configuration/materials.md#reflections-table),
 where the HKLs may be selected.
 
 ### Thresholding the Data
@@ -93,7 +93,7 @@ is selected, when the Eta-Omega maps are generated, any pixels that fall
 below the threshold value will be set to zero. This can be helpful in
 eliminating background noise if your signal values are much greater than
 your background values. If you need help selecting a threshold value,
-switch to the [raw view](../views.md#raw-view) in the main canvas, optionally
+switch to the [raw view](../../views.md#raw-view) in the main canvas, optionally
 zoom in to a specific region, and hover your mouse over the signal and
 the background (pixel information, including the intensity, is provided
 in the bottom-left corner of the main window as the mouse is hovered over
@@ -395,7 +395,7 @@ to the [Find Orientations Dialog](#find-orientations) so that you may
 select different options and try again.
 
 After indexing is complete, note that you also have the
-option to create [rotation series overlays](../configuration/overlays.md#rotation-series-overlays)
+option to create [rotation series overlays](../../configuration/overlays.md#rotation-series-overlays)
 from the indexing grain data via the "Load" button in the rotation
 series overlay editor.
 

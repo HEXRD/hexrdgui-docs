@@ -73,7 +73,7 @@ The reflections table may be used for a few reasons:
 1. To view information about each available reflection
 2. To show/hide the reflection for powder overlays
 3. To select reflections to use in calibration methods
-4. To select reflections to use in various steps in the [HEDM workflow](../hedm/indexing.md)
+4. To select reflections to use in various steps in the [HEDM workflow](../workflows/hedm/indexing.md)
 
 Shift-click can be used to select multiple rows simultaneously, and ctrl-click may
 be used to add/remove individual rows. The rows may also be sorted by clicking on the
@@ -135,10 +135,10 @@ the ratio value will cause `a` to change to reflect the new ratio value.
 ### Material Structure
 
 The space group and lattice parameters of a material are sufficient to determine
-the list of allowed reflections and the $2\theta$ values for these reflections. 
+the list of allowed reflections and the $2\theta$ values for these reflections.
 However, in order to compute the correct structure factors, additional information
 is required about the positions of atoms in the unit cell. The `structure` tab lets
-the user input this information. 
+the user input this information.
 
 ![Material structures tab](img/material_structure_tab.png)
 
@@ -165,9 +165,9 @@ user select the atom type at the site location as shown below:
 
 ![Atom selector for a site](img/atom_selector_periodic_table.png)
 
-Typically, one atom sits at each site.  However, 
-It is possible for multiple atoms to occupy the same atomic site with fractional 
-occupancy (summing up to 1). A relevant material system where this is the case are 
+Typically, one atom sits at each site.  However,
+It is possible for multiple atoms to occupy the same atomic site with fractional
+occupancy (summing up to 1). A relevant material system where this is the case are
 disordered alloys. In this case the user needs to select multiple atoms for the same
 site position and set the occupancies correctly.
 

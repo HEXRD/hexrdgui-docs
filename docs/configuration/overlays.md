@@ -257,7 +257,7 @@ material, and thus every Laue overlay may have different width settings*
 The Laue overlays also require crystal parameters to be specified. These
 include the crystal's orientation, position, and stretch matrix. These parameters
 may be entered manually or loaded via a `grains.out` file (or alternatively
-loaded from the results of various steps in the [HEDM workflow](../hedm/indexing.md),
+loaded from the results of various steps in the [HEDM workflow](../workflows/hedm/indexing.md),
 if available. These options appear if the `Load` button is clicked).
 
 The `Slider` tab
@@ -348,8 +348,8 @@ overlays, however, only rectangular ranges are allowed.
 Similarly to the Laue overlays, crystal parameters must be specified. These may either
 be entered manually or loaded in. If the `Load` button
 is clicked, a grain may be selected from a `grains.out` file, from the most recent
-[indexing results](../hedm/indexing.md), from the most recent
-[fit grains results](../hedm/fit_grains.md), or from the most recent
+[indexing results](../workflows/hedm/indexing.md), from the most recent
+[fit grains results](../workflows/hedm/fit_grains.md), or from the most recent
 [rotation series calibration results](../calibration/rotation_series.md).
 
 Also similarly to Laue overlays, the crystal orientation and
@@ -390,8 +390,8 @@ ranges of (`-85°`, `85°`) and (`95°`, `265°`).
 
 ### Use in HEDM Workflow
 
-Rotation series overlays are particularly important in the [HEDM workflow](../hedm/indexing.md).
-After [`fit-grains`](../hedm/fit_grains.md) is completed, one rotation series overlay is
+Rotation series overlays are particularly important in the [HEDM workflow](../workflows/hedm/indexing.md).
+After [`fit-grains`](../workflows/hedm/fit_grains.md) is completed, one rotation series overlay is
 typically created for each grain (the grain results from `fit-grains` may be loaded by clicking
 the `Load` button within the `Crystal Parameters` section). These rotation series overlays are
 then used for [rotation series calibration](../calibration/rotation_series.md).
