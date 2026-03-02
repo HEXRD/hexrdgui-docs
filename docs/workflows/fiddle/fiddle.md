@@ -1,6 +1,6 @@
 # FIDDLE
 
-![FIDDLE Cartesian Calibrated](img/fiddle_cartesian_calibrated.png)
+<iframe width="1008" height="567" src="https://www.youtube.com/embed/kdljExGlQOA?si=qX9xrH_Lq1vgL8Ai" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 The Flexible Imaging Diffraction Diagnostic for Laser Experiments
 (FIDDLE) is a time-resolved x-ray diffraction diagnostic at the National
@@ -12,6 +12,8 @@ Because FIDDLE incorporates multiple detectors, HEXRD's flexible geometry
 model is an ideal fit for FIDDLE analysis. In this tutorial, we cover all
 steps within the FIDDLE analysis workflow, from importing data to calibration,
 and analyzing lineouts.
+
+![FIDDLE Cartesian Calibrated](img/fiddle_cartesian_calibrated.png)
 
 ## Loading FIDDLE Data
 
