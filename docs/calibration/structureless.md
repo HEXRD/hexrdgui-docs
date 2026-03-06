@@ -36,6 +36,10 @@ the current session, this option will be enabled. If selected, clicking
 
 ## Hand Picking
 
+The hand picking tool is shared with the
+[Composite calibration workflow](composite_laue_and_powder.md#hand-picking).
+See that page for a general description of how hand picking works.
+
 If you choose to hand-pick points to be used in the structureless calibration,
 a zoom box will appear, and a cursor will be drawn at the location of your
 mouse pointer in the canvas, as follows:
