@@ -39,7 +39,7 @@ In this view, you are able to see and edit most of the values in the instrument
 configuration. Any edits should cause a live update in the image canvas (as long
 as `View->Show Live Updates` is checked). You are also able to edit which parameters
 are refinable here, which is helpful if you plan to run a calibration later (see
-[refinements](../calibration/refinements.md) for more details about
+[general calibration information](../calibration/general_calibration.md) for more details about
 calibration refinements).
 
 There are some context menu options available if you right-click a row in the tree
@@ -63,7 +63,7 @@ function may be applied (such as `GE_41RT`). And detectors can be added (with th
 "Detector Parameters" section).
 
 In the form view, a gray background for the widgets indicates that they are not
-refinable (see [the refinements section](../calibration/refinements.md)) during
+refinable (see [general calibration information](../calibration/general_calibration.md)) during
 calibration.
 
 ### X-Ray Energy Selection
