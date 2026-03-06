@@ -38,6 +38,7 @@ nav:
     - configuration/state.md
   - views.md
   - Calibration:
+    - calibration/general_calibration.md
     - calibration/fast_powder.md
     - calibration/composite_laue_and_powder.md
     - calibration/structureless.md
