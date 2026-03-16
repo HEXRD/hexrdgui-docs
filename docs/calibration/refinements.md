@@ -1,3 +1,0 @@
-# Refinements
-
-FIXME: add content

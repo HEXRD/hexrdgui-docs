@@ -136,7 +136,7 @@ that they do not appear over excluded pixels (as specified by the
 
 The `Refinements` section allows the user to set which material lattice parameters are
 refinable during calibration. Note that this is also accessible in the refinements editor
-(see [refinements](../calibration/refinements.md) for more details).
+(see [general calibration information](../calibration/general_calibration.md) for more details).
 
 ### Pinhole Distortion
 
@@ -265,7 +265,7 @@ enables interactive editing of the orientation and the position (the Laue overla
 in the canvas will update in real-time while the sliders are being modified).
 And the `Refinements` tab allows crystal parameters to be flagged for refinement
 during calibration. The refinement settings may also be found in the refinements
-editor (see [refinements](../calibration/refinements.md) for more details).
+editor (see [general calibration information](../calibration/general_calibration.md) for more details).
 
 Below the crystal parameters, the sample frame orientation may be specified.
 
@@ -355,7 +355,7 @@ is clicked, a grain may be selected from a `grains.out` file, from the most rece
 Also similarly to Laue overlays, the crystal orientation and
 position may be edited interactively in the `Slider` tab, and whether or not the crystal
 parameters are refinable may be selected in the `Refinements` tab (the refinement settings
-may also be accessed via the refinements editor - see [refinements](../calibration/refinements.md)
+may also be accessed via the refinements editor - see [general calibration information](../calibration/general_calibration.md)
 for more details).
 
 ### Eta and Omega Ranges

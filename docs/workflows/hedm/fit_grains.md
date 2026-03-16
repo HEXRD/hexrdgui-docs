@@ -262,6 +262,20 @@ as there may be an issue we need to fix). The image files can then be swapped
 out for other image files to run the same workflow on a different set of
 image files. Scripts could be used to perform batch processing.
 
+### Spot Diagnostics
+
+The "Show Spot Diagnostics" button opens a dialog for visualizing the
+residuals between predicted and measured spot positions. This is useful
+for evaluating the quality of the fit and identifying problematic spots
+or detectors. The button is only enabled when spot data is available
+(i.e., when Fit Grains was run in the current session rather than
+loaded from a file).
+
+For a detailed description of the Spot Diagnostics dialog and its
+controls, see the
+[Spot Diagnostics section](../../calibration/rotation_series.md#spot-diagnostics)
+in the Rotation Series calibration documentation.
+
 ### After Fit Grains
 
 After fit-grains is complete, note that you also have the
