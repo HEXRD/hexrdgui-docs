@@ -199,6 +199,8 @@ This requires matching HEXRD and HEXRDGUI builds with cake-matrix support.
 The file includes the active beam and static panel buffers. Dark subtraction,
 image flips, display masks, intensity corrections, SNIP, and polar distortion
 are not included. Apply the required image preprocessing before using the matrix.
+Next to panel gaps, the matrix leaves out any bin that interpolates from a
+buffered pixel, while the polar view may still show a dimmed value there.
 
 See the [cake-data guide](https://hexrd.readthedocs.io/en/latest/users/cake-data.html)
 for a runnable Eiger example, YAML scan processing, and dual-Dexela inputs with
