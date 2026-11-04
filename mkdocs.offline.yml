@@ -1,0 +1,15 @@
+# A copy of the docs that works with no internet, opened from local files.
+# The HEXRDGUI installers bundle it for the help buttons. Build it with:
+#
+#     mkdocs build -f mkdocs.offline.yml -d site-offline
+INHERIT: mkdocs.yml
+
+# Link to page.html instead of page/, which needs a web server
+use_directory_urls: false
+
+plugins:
+  - search
+  # Download the fonts and scripts from the internet while building
+  - privacy
+  # Make search work without a web server
+  - offline

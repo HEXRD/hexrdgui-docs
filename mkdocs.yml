@@ -7,7 +7,8 @@ theme:
     primary: 'light blue'
     accent: 'light blue'
 markdown_extensions:
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
@@ -23,7 +24,8 @@ markdown_extensions:
   - codehilite
 copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/4.0/" title="CC-BY 4.0">CC-BY 4.0</a></font>'
 extra_javascript:
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  # The full SVG build loads nothing else at runtime, so it works offline
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg-full.js'
 extra_css:
   - 'stylesheets/extra.css'
 nav:
